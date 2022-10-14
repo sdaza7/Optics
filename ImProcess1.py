@@ -5,12 +5,17 @@ import numpy as np
 img = mpimg.imread('IM1.jpeg')
 #Mostrar la Imagen
 plt.imshow(img,cmap='gray')
-#Seleccionar un punto
-u = plt.ginput(1)
-print(np.shape(u))
-#pixel=img[u]
-print(u[0])
+#Seleccionar Puntos
+u = plt.ginput(2)
+#Guardar Valores
 u1, u2 = u[0]
-print(u2)
-IR = img[50:100,100:200]
+v1, v2 = u[1]
+#Valor del Pixel
+pixelu=img[int(u2), int(u1)]
+pixelv=img[int(v2), int(v1)]
+print(pixelu, pixelv)
+#Recorte
+plt.clf()
+IR = img[int(u2):int(v2),int(u1):int(v1)]
 plt.imshow(IR,cmap='gray')
+plt.show()
